@@ -32,5 +32,6 @@ Open PowerShell as Administrator and run the script:
 .\scripts\System-Health-Check.ps1 -LogPath "C:\Temp\healthcheck.log"
 
 
-```markdown
+## 🛠️ TROUBLESHOOTING
 For common errors and fixes, see [TROUBLESHOOTING.md](./TROUBLESHOOTING.md).
+
