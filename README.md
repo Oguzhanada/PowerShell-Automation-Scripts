@@ -31,7 +31,11 @@ Open PowerShell as Administrator and run the script:
 # Custom log file path
 .\scripts\System-Health-Check.ps1 -LogPath "C:\Temp\healthcheck.log"
 
+```
+
 ---
+
 ## 🛠️ TROUBLESHOOTING
 For common errors and fixes, see [TROUBLESHOOTING.md](./TROUBLESHOOTING.md).
+
 ---
