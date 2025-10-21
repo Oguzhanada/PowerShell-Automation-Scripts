@@ -12,7 +12,7 @@ This repo contains simple PowerShell scripts I wrote to make daily tasks easier.
 
 ## 📂 Contents
 - `scripts/System-Health-Check.ps1` → Check CPU, memory, and disk usage with alerts and logging  
-- `scripts/Windows-Update-Check.ps1` → (coming soon) check pending Windows updates  
+- `scripts/Windows-Update-Check.ps1` → Check pending Windows updates  
 - `scripts/Log-Cleanup.ps1` → (coming soon) clean up old log files in given folders  
 
 ---
