@@ -36,6 +36,6 @@ Open PowerShell as Administrator and run the script:
 ---
 
 ## 🛠️ TROUBLESHOOTING
-For common errors and fixes, see [TROUBLESHOOTING.md](./TROUBLESHOOTING.md).
+For common errors and fixes, see [TROUBLESHOOTING.md](Troubleshooting.md).
 
 ---
