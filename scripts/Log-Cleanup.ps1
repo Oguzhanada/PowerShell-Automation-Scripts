@@ -8,7 +8,7 @@ param(
 )
 
 $DateLimit = (Get-Date).AddDays(-$DaysOld)
-$LogFile = "C:\Users\LogCleanup_Report_{0:yyyyMMdd_HHmmss}.txt" -f (Get-Date)
+$LogFile = "LogCleanup_Report_{0:yyyyMMdd_HHmmss}.txt" -f (Get-Date)
 $DeletedCount = 0
 $lines = @()
 
