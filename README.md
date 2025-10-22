@@ -31,6 +31,12 @@ Open PowerShell as Administrator and run the script:
 # Custom log file path
 .\scripts\System-Health-Check.ps1 -LogPath "C:\Temp\healthcheck.log"
 
+# Only Test Mode (No Deletion)
+.\Log-Cleanup.ps1 -Paths "C:\Logs","C:\Temp" -DaysOld 20 -WhatIf
+
+# Real Cleanup
+.\Log-Cleanup.ps1 -Paths "C:\Logs","C:\Temp" -DaysOld 30
+
 ```
 
 ---
