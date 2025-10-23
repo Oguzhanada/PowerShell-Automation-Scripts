@@ -157,7 +157,7 @@ jobs:
 
 Badge example (add to top of README):
 ```markdown
-![PowerShell Lint](https://github.com/<your-username>/<repo>/actions/workflows/pssa.yml/badge.svg)
+![PowerShell Lint](https://github.com/Oguzhanada/PowerShell-Automation-Scripts/actions/workflows/pssa.yml/badge.svg)
 ```
 
 ---
