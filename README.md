@@ -155,7 +155,6 @@ jobs:
         shell: pwsh
 ```
 
-Badge example (add to top of README):
 ```markdown
 ![PowerShell Lint](https://github.com/Oguzhanada/PowerShell-Automation-Scripts/actions/workflows/pssa.yml/badge.svg)
 ```
