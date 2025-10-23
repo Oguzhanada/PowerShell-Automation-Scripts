@@ -1,9 +1,10 @@
 name: PowerShell Lint
 on:
   push:
-    paths: ["scripts/**.ps1"]
+    paths: ["scripts/**/*.ps1"]
   pull_request:
-    paths: ["scripts/**.ps1"]
+    paths: ["scripts/**/*.ps1"]
+  workflow_dispatch: {}   # ← Manuel çalıştırma için
 
 jobs:
   analyze:
