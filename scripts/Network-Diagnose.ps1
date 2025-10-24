@@ -1,7 +1,7 @@
 
 [CmdletBinding()]
 param(
-    [string[]]$Targets   = @("8.8.8.8","1.1.1.1","www.microsoft.com"),
+    [string[]]$Targets   = @("8.8.8.8","www.microsoft.com"),
     [string[]]$DnsNames  = @("www.microsoft.com","www.github.com"),
     [string]  $ReportPath,
     [string]  $AdapterName,
