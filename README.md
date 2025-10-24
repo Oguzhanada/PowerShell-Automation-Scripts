@@ -20,10 +20,8 @@ This repository contains simple PowerShell scripts I wrote to make daily IT supp
 | `scripts/System-Health-Check.ps1` | Check CPU, memory, and disk usage with alerts and logging |
 | `scripts/Windows-Update-Check.ps1` | Check pending Windows updates and show patch status |
 | `scripts/Log-Cleanup.ps1` | Clean up old log or text files and generate a cleanup report |
-| `scripts/Network-Diagnose.ps1` | (coming soon) Test network connectivity, DNS, and adapter status |
-| `scripts/Outlook-Repair.ps1` | (coming soon) Fix common Outlook issues (cache, safe mode, add-ins) |
-| `scripts/AD-User-Assist.ps1` | (coming soon) Reset password, unlock account, and check group membership |
-| `scripts/EventLog-Export.ps1` | (coming soon) Export last 24h system/application errors to CSV |
+| `scripts/Network-Diagnose.ps1` | Test network connectivity, DNS, and adapter status |
+
 
 ---
 
@@ -53,7 +51,6 @@ Open PowerShell **as Administrator** and run the scripts from the project folder
 ```
 - Generates a report file like `LogCleanup_Report_20251022_2000.txt`
 - Use `-WhatIf` first to confirm what will be deleted
-- Run as **Administrator** for system folders
 
 
 
@@ -84,15 +81,8 @@ Open PowerShell **as Administrator** and run the scripts from the project folder
 
 ---
 
-## 🛡️ Safety
-- Always test with the `-WhatIf` flag before running cleanup or deletion commands.  
-- Read the generated report before removing files permanently.  
-- Backup important log folders if used for audits or monitoring.
-
----
 
 ## 🗺️ Roadmap (Coming Soon)
-- `scripts/Network-Diagnose.ps1` → basic connectivity, ping, DNS, gateway, and adapter checks  
 - `scripts/Outlook-Repair.ps1` → Outlook safe mode, cache clear, and add-in reset  
 - `scripts/AD-User-Assist.ps1` → quick user management commands (reset, unlock, group check)  
 - `scripts/Update-Remediation.ps1` → WSUS cleanup and Windows Update cache reset  
@@ -124,7 +114,7 @@ PowerShell-Automation/
 │  ├─ System-Health-Check.ps1
 │  ├─ Windows-Update-Check.ps1
 │  ├─ Log-Cleanup.ps1
-│  └─ (coming soon) Network-Diagnose.ps1
+│  └─ Network-Diagnose.ps1
 ├─ configs/
 │  └─ cleanup-config.json
 ├─ docs/
