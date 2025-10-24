@@ -55,22 +55,27 @@ Open PowerShell **as Administrator** and run the scripts from the project folder
 - Use `-WhatIf` first to confirm what will be deleted
 - Run as **Administrator** for system folders
 
+
+
+### Network Diagnose
+```powershell
+# Save report to file
+.\scripts\Network-Diagnose.ps1 -ReportPath "C:\Temp\netdiag_report.txt
+
+# Custom targets and DNS names
+.\scripts\Network-Diagnose.ps1 -Targets "8.8.8.8","8.8.4.4" -DnsNames "www.microsoft.com","www.github.com"
+
+# Specific adapter and timeout
+.\scripts\Network-Diagnose.ps1 -AdapterName "Wi-Fi" -TimeoutSec 2
+
+```
+- Works with PowerShell 7+
+- Runs safe, read-only connectivity checks (no configuration changes)
+- Tests adapter, gateway, DNS resolution, and ping reachability.
+- Displays live results and can generate a full text report when -ReportPath is specified.
+
 ---
 
-## 🧾 Example Report (Log Cleanup)
-```
-Log Cleanup started: 22/10/2025 20:00:12
-Folders checked: C:\Logs, C:\Temp
-Removing files older than 10 days
-
-Deleting: C:\Logs\error_20251001.log
-Deleting: C:\Temp\debug_old.txt
-
-Total deleted: 2
-Completed: 22/10/2025 20:00:13
-```
-
----
 
 ## ⚙️ Requirements
 - Windows 10/11 or Windows Server 2016+  
