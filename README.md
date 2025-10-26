@@ -155,24 +155,6 @@ jobs:
 ```
 
 ---
-
-## ✅ 7-Day Commit Roadmap
-
-| Day | Task | Commit Message |
-|-----|------|----------------|
-| **Day 1** | Add `Log-Cleanup.ps1` + update README usage | `feat(logs): add Log-Cleanup.ps1 + usage docs` |
-| **Day 2** | Add `configs/cleanup-config.json` | `feat(config): add cleanup-config.json for retention policy` |
-| **Day 3** | Create `Network-Diagnose.ps1` (ping, DNS, gateway test) | `feat(network): add basic Network-Diagnose.ps1` |
-| **Day 4** | Update README (Roadmap + Safety + Requirements) | `docs: add roadmap and safety sections` |
-| **Day 5** | Add `.github/workflows/pssa.yml` | `ci: add PowerShell analyzer workflow` |
-| **Day 6** | Add `Outlook-Repair.ps1` skeleton | `feat(outlook): add Outlook-Repair.ps1 skeleton` |
-| **Day 7** | Add `EventLog-Export.ps1` (export last 24h logs) | `feat(logs): add EventLog-Export.ps1` |
-
-Even a small README or comment edit counts as one commit.  
-Consistency builds reliability — **one green square every day.**
-
----
-
 ## 🧩 Troubleshooting
 For common script errors and fixes, see [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md).
 
