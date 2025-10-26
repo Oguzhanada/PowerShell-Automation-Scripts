@@ -125,36 +125,6 @@ PowerShell-Automation/
 ```
 
 ---
-
-## 🧠 GitHub Actions (Code Quality)
-
-`.github/workflows/pssa.yml`
-```yaml
-name: PowerShell Lint
-on:
-  push:
-    paths: ["scripts/**.ps1"]
-  pull_request:
-    paths: ["scripts/**.ps1"]
-
-jobs:
-  analyze:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install PSScriptAnalyzer
-        run: Install-Module PSScriptAnalyzer -Scope CurrentUser -Force
-        shell: pwsh
-      - name: Run analysis
-        run: Invoke-ScriptAnalyzer -Path ./scripts -Recurse
-        shell: pwsh
-```
-
-```markdown
-![PowerShell Lint](https://github.com/Oguzhanada/PowerShell-Automation-Scripts/actions/workflows/pssa.yml/badge.svg)
-```
-
----
 ## 🧩 Troubleshooting
 For common script errors and fixes, see [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md).
 
