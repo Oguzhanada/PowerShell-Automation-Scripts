@@ -17,7 +17,7 @@ This repository contains simple PowerShell scripts I wrote to make daily IT supp
 
 | Script | Description |
 |--------|--------------|
-| `scripts/System-Health-Check.ps1` | Check CPU, memory, and disk usage with alerts and logging |
+| `scripts/System-Health-Check.ps1` | Check CPU, memory, and disk usage with alerts and logging|
 | `scripts/Windows-Update-Check.ps1` | Check pending Windows updates and show patch status |
 | `scripts/Log-Cleanup.ps1` | Clean up old log or text files and generate a cleanup report |
 | `scripts/Network-Diagnose.ps1` | Test network connectivity, DNS, and adapter status |
