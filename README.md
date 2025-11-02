@@ -85,8 +85,7 @@ Open PowerShell **as Administrator** and run the scripts from the project folder
 ## 🗺️ Roadmap (Coming Soon)
 - `scripts/AD-User-Assist.ps1` → quick user management commands (reset, unlock, group check)  
 - `scripts/Update-Remediation.ps1` → WSUS cleanup and Windows Update cache reset  
-- `scripts/EventLog-Export.ps1` → export recent error and warning logs to CSV  
-- `configs/cleanup-config.json` → define folder paths and retention days for Log Cleanup v2  
+- `scripts/EventLog-Export.ps1` → export recent error and warning logs to CSV   
 
 ---
 
