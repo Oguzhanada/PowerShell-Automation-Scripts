@@ -62,9 +62,6 @@ Open PowerShell **as Administrator** and run the scripts from the project folder
 # Custom targets and DNS names
 .\scripts\Network-Diagnose.ps1 -Targets "8.8.8.8","8.8.4.4" -DnsNames "www.microsoft.com","www.github.com"
 
-# Specific adapter and timeout
-.\scripts\Network-Diagnose.ps1 -AdapterName "Wi-Fi" -TimeoutSec 2
-
 ```
 - Works with PowerShell 7+
 - Runs safe, read-only connectivity checks (no configuration changes)
