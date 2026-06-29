@@ -55,7 +55,7 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 
 ## Config file
 
-`confings/cleanup-config.json` holds a sample cleanup configuration (a `DaysOld` value and a list of `Paths`). It is included as a reference for a future version. The current `Log-Cleanup.ps1` does not read this file yet, so for now pass `-Paths` and `-DaysOld` on the command line.
+`configs/cleanup-config.json` holds a sample cleanup configuration (a `DaysOld` value and a list of `Paths`). It is included as a reference for a future version. The current `Log-Cleanup.ps1` does not read this file yet, so for now pass `-Paths` and `-DaysOld` on the command line.
 
 ## Project structure
 
@@ -66,7 +66,7 @@ PowerShell-Automation-Scripts/
 │  ├─ Windows-Update-Check.ps1
 │  ├─ Log-Cleanup.ps1
 │  └─ Network-Diagnose.ps1
-├─ confings/
+├─ configs/
 │  └─ cleanup-config.json
 ├─ docs/
 │  └─ Troubleshooting.md
