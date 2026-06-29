@@ -1,149 +1,88 @@
-# ⚡ PowerShell Automation Scripts  
+# PowerShell Automation Scripts
 
-This repository contains simple PowerShell scripts I wrote to make daily IT support and system maintenance tasks easier.  
-👉 It is also one of the first steps in my **Back to Tech Challenge** journey, where I rebuild my hands-on skills and share my progress.
+A small collection of PowerShell scripts for everyday Windows IT support and system maintenance: health checks, update checks, log cleanup, and network diagnostics.
 
----
+## Scripts
 
-## 🎯 Purpose
-- Speed up daily system checks  
-- Automate repetitive or manual tasks  
-- Improve troubleshooting and documentation habits  
-- Share what I learn while preparing for IT Support and Security roles  
+All scripts live in the `scripts/` folder.
 
----
-
-## 📂 Contents
-
-| Script | Description |
+| Script | What it does |
 |--------|--------------|
-| `scripts/System-Health-Check.ps1` | Check CPU, memory, and disk usage with alerts and logging|
-| `scripts/Windows-Update-Check.ps1` | Check pending Windows updates and show patch status |
-| `scripts/Log-Cleanup.ps1` | Clean up old log or text files and generate a cleanup report |
-| `scripts/Network-Diagnose.ps1` | Test network connectivity, DNS, and adapter status |
+| `System-Health-Check.ps1` | Reports current CPU, memory, and per-drive disk usage. Prints a red alert, sounds a console beep, and appends to a log file when a value crosses its threshold. Thresholds and the log path are parameters. |
+| `Windows-Update-Check.ps1` | Lists pending Windows updates using the PSWindowsUpdate module. If the module is missing, it installs it first, then shows the patches or reports that the system is up to date. |
+| `Log-Cleanup.ps1` | Deletes `.log` and `.txt` files older than a set number of days in the folders you pass in, then writes a timestamped report of what it did. A `-WhatIf` switch lets you preview the list without deleting. |
+| `Network-Diagnose.ps1` | Runs read-only network checks: active adapter and IP, default gateway reachability, DNS resolution, ping tests, and basic adapter health. Can save a text report when `-ReportPath` is given. No configuration is changed. |
 
+## Requirements
 
----
+- Windows 10/11 or Windows Server 2016 or newer
+- PowerShell 5.1 or newer for most scripts
+- PowerShell 7 or newer for `Network-Diagnose.ps1` (it uses syntax that needs PowerShell 7)
+- Administrator rights for protected system folders and for some update operations
 
-## 🔧 Usage
+## How to use
 
-Open PowerShell **as Administrator** and run the scripts from the project folder.
+Open PowerShell, ideally as Administrator, and run a script from the project folder.
 
-### System Health Check
 ```powershell
-# Run with default thresholds (CPU 80%, RAM 85%, Disk free 5GB)
+# Health check with default thresholds (CPU 80%, memory 85%, disk free 5 GB)
 .\scripts\System-Health-Check.ps1
 
-# Custom thresholds
-.\scripts\System-Health-Check.ps1 -CpuThreshold 70 -MemThreshold 80 -DiskFreeThresholdGB 10
+# Health check with custom thresholds and log path
+.\scripts\System-Health-Check.ps1 -CpuThreshold 70 -MemThreshold 80 -DiskFreeThresholdGB 10 -LogPath "C:\Temp\healthcheck.log"
 
-# Custom log file path
-.\scripts\System-Health-Check.ps1 -LogPath "C:\Temp\healthcheck.log"
-```
+# Preview a log cleanup without deleting anything
+.\scripts\Log-Cleanup.ps1 -Paths "C:\Logs","C:\Temp" -DaysOld 30 -WhatIf
 
-### Log Cleanup
-```powershell
-# Test mode (no deletion)
-.\scripts\Log-Cleanup.ps1 -Paths "C:\Logs","C:\Temp" -DaysOld 20 -WhatIf
-
-# Real cleanup
+# Run the cleanup for real
 .\scripts\Log-Cleanup.ps1 -Paths "C:\Logs","C:\Temp" -DaysOld 30
-```
-- Generates a report file like `LogCleanup_Report_20251022_2000.txt`
-- Use `-WhatIf` first to confirm what will be deleted
 
+# List pending Windows updates
+.\scripts\Windows-Update-Check.ps1
 
+# Network diagnostics with a saved report
+.\scripts\Network-Diagnose.ps1 -ReportPath "C:\Temp\netdiag_report.txt"
 
-### Network Diagnose
-```powershell
-# Save report to file
-.\scripts\Network-Diagnose.ps1 -ReportPath "C:\Temp\netdiag_report.txt
-
-# Custom targets and DNS names
+# Network diagnostics with custom ping targets and DNS names
 .\scripts\Network-Diagnose.ps1 -Targets "8.8.8.8","8.8.4.4" -DnsNames "www.microsoft.com","www.github.com"
-
 ```
-- Works with PowerShell 7+
-- Runs safe, read-only connectivity checks (no configuration changes)
-- Tests adapter, gateway, DNS resolution, and ping reachability.
-- Displays live results and can generate a full text report when -ReportPath is specified.
 
----
+If running scripts is blocked by execution policy, allow them for your user:
 
-
-## ⚙️ Requirements
-- Windows 10/11 or Windows Server 2016+  
-- PowerShell 5.1+ or PowerShell 7+  
-- Admin rights for protected system folders  
-
----
-
-
-## 🗺️ Roadmap (Coming Soon)
-- `scripts/AD-User-Assist.ps1` → quick user management commands (reset, unlock, group check)  
-- `scripts/Update-Remediation.ps1` → WSUS cleanup and Windows Update cache reset  
-- `scripts/EventLog-Export.ps1` → export recent error and warning logs to CSV   
-
----
-
-## 📘 Example Config File (for Log-Cleanup v2)
-`configs/cleanup-config.json`
-```json
-{
-  "DaysOld": 14,
-  "Paths": [
-    "C:\Logs",
-    "C:\Temp",
-    "C:\Windows\Temp"
-  ]
-}
+```powershell
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
-*(Log-Cleanup v2 will read this file automatically to manage different folders.)*
 
----
+## Config file
 
-## 🧰 Project Structure
+`confings/cleanup-config.json` holds a sample cleanup configuration (a `DaysOld` value and a list of `Paths`). It is included as a reference for a future version. The current `Log-Cleanup.ps1` does not read this file yet, so for now pass `-Paths` and `-DaysOld` on the command line.
+
+## Project structure
+
 ```text
-PowerShell-Automation/
+PowerShell-Automation-Scripts/
 ├─ scripts/
 │  ├─ System-Health-Check.ps1
 │  ├─ Windows-Update-Check.ps1
 │  ├─ Log-Cleanup.ps1
 │  └─ Network-Diagnose.ps1
-├─ configs/
+├─ confings/
 │  └─ cleanup-config.json
 ├─ docs/
-│  └─ TROUBLESHOOTING.md
+│  └─ Troubleshooting.md
 └─ .github/
    └─ workflows/
       └─ pssa.yml
 ```
 
----
-## 🧩 Troubleshooting
-For common script errors and fixes, see [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md).
+## Continuous integration
 
-Typical issues:
-- Missing PowerShell modules → install via `Install-Module -Name PSWindowsUpdate`
-- Execution Policy → run `Set-ExecutionPolicy RemoteSigned`
-- Permission errors → start PowerShell as Administrator  
+A GitHub Actions workflow (`.github/workflows/pssa.yml`) runs PSScriptAnalyzer over the `scripts/` folder on every push and pull request that touches a `.ps1` file.
 
----
+## Troubleshooting
 
-## 🤝 Contributing
-This is a learning and personal development project.  
-Pull requests and suggestions are always welcome — please keep scripts safe, tested, and well-documented.
+Common errors and fixes (module not found, execution policy, PSGallery trust prompts) are documented in [docs/Troubleshooting.md](docs/Troubleshooting.md).
 
----
+## License
 
-## 📜 License
-This project is licensed under the **MIT License**.  
-You are free to use and modify the scripts with proper credit.
-
----
-
-## 💡 Notes
-These scripts are part of my ongoing learning plan for IT Support, System Administration, and Security Operations.  
-They help me stay close to technology while preparing for professional roles in Ireland’s tech industry.
-
----
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
